@@ -14,6 +14,6 @@ export default [
   {
     name: "roomModel",
     type: "gltfModel",
-    path: "models/myroom.glb",
+    path: "models/Room/myroom.gltf",
   },
 ];
