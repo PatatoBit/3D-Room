@@ -26,4 +26,9 @@ export default [
     type: "gltfModel",
     path: "models/Fox/glTF/Fox.gltf",
   },
+  {
+    name: "roomModel",
+    type: "gltfModel",
+    path: "models/myroom.glb",
+  },
 ];

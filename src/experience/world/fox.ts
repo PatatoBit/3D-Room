@@ -26,7 +26,6 @@ export default class Fox {
     }
     // Setup
     this.resource = this.resources.items.foxModel;
-
     this.setModel();
     this.setAnimation();
   }
