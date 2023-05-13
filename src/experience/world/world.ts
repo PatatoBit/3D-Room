@@ -1,4 +1,4 @@
-import Experience from "../Experience";
+import Experience from "../experience";
 import Room from "./Room";
 import Environment from "./Environment";
 

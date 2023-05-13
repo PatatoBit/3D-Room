@@ -4,7 +4,7 @@ import {
   MeshStandardMaterial,
   sRGBEncoding,
 } from "three";
-import Experience from "../Experience";
+import Experience from "../experience";
 
 export default class Environment {
   experience: Experience;
