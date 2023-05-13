@@ -4,7 +4,7 @@ import {
   sRGBEncoding,
   WebGLRenderer,
 } from "three";
-import Experience from "./experience";
+import Experience from "./Experience";
 
 export default class Renderer {
   experience: Experience;

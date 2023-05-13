@@ -1,5 +1,5 @@
 import { Mesh } from "three";
-import Experience from "../experience";
+import Experience from "../Experience";
 
 export default class Room {
   experience: Experience;

@@ -1,7 +1,7 @@
 import { CubeTexture, CubeTextureLoader, Texture, TextureLoader } from "three";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { Source } from "../../types";
-import sources from "../sources";
+import sources from "../Sources";
 import EventEmitter from "./eventEmitter";
 
 export default class Resources extends EventEmitter {
