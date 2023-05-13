@@ -1,6 +1,6 @@
 import Experience from "../experience";
-import Room from "./Room";
-import Environment from "./Environment";
+import Room from "./room";
+import Environment from "./environment";
 
 export default class World {
   experience: Experience;

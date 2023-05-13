@@ -1,12 +1,12 @@
 import { Mesh, Scene } from "three";
-import Camera from "./Camera";
-import Renderer from "./Renderer";
-import sources from "./Sources";
+import Camera from "./camera";
+import Renderer from "./renderer";
+import sources from "./sources";
 import Debug from "./utils/debug";
 import Resources from "./utils/resources";
 import Sizes from "./utils/sizes";
 import Time from "./utils/time";
-import World from "./world/World";
+import World from "./world/world";
 
 declare global {
   interface Window {
