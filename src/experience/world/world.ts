@@ -1,8 +1,6 @@
 import Experience from "../experience";
 import Room from "./Room";
 import Environment from "./environment";
-import Floor from "./floor";
-import Fox from "./fox";
 
 export default class World {
   experience: Experience;
@@ -10,8 +8,6 @@ export default class World {
   scene: Experience["scene"];
   resources: Experience["resources"];
 
-  fox!: Fox;
-  floor!: Floor;
   room!: Room;
 
   constructor() {
@@ -26,11 +22,5 @@ export default class World {
       this.room = new Room();
       this.environment = new Environment();
     });
-  }
-
-  update() {
-    if (this.fox) {
-      this.fox.update();
-    }
   }
 }
