@@ -70,7 +70,7 @@ export default class Experience {
 
   update() {
     // Animate
-    // this.camera.update();
+    this.camera.update();
     this.renderer.update();
   }
 

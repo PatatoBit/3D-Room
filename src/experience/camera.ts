@@ -63,10 +63,10 @@ export default class Camera {
   setOrbitControls() {
     this.controls = new OrbitControls(this.instance, this.canvas);
     this.controls.enableDamping = true;
+    this.controls.dampingFactor = 0.02;
 
     // Limit
     // Cannot look behind the model
-
     this.controls.maxAzimuthAngle = Math.PI / 2;
     this.controls.minAzimuthAngle = 0;
     this.controls.maxPolarAngle = Math.PI / 2;
