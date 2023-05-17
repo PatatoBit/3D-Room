@@ -10,6 +10,7 @@ export default class Camera {
   canvas: Experience["canvas"];
   instance!: PerspectiveCamera;
   controls!: OrbitControls;
+  config!: any;
 
   constructor() {
     // this.experience = experience;
@@ -19,6 +20,7 @@ export default class Camera {
     this.canvas = this.experience.canvas;
 
     this.setInstance();
+    this.setConfig();
     this.setOrbitControls();
   }
 
@@ -30,7 +32,25 @@ export default class Camera {
       100
     );
     this.instance.position.set(5, 3, 5);
+    this.instance.rotation.reorder("YXZ");
     this.scene.add(this.instance);
+  }
+
+  setConfig() {
+    this.config = {};
+
+    // Pixel ratio
+    this.config.pixelRatio = Math.min(Math.max(window.devicePixelRatio, 1), 2);
+
+    // Width and height
+    const boundings = this.experience.canvas.getBoundingClientRect();
+    this.config.width = boundings.width;
+    this.config.height = boundings.height || window.innerHeight;
+    this.config.smallestSide = Math.min(this.config.width, this.config.height);
+    this.config.largestSide = Math.max(this.config.width, this.config.height);
+
+    // Debug
+    // this.config.debug = window.location.hash === '#debug'
   }
 
   setOrbitControls() {
