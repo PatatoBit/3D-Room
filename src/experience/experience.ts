@@ -25,7 +25,8 @@ export default class Experience {
   camera!: Camera;
   renderer!: Renderer;
   world!: World;
-  debug!: Debug;
+  debug!: any;
+  config: any;
 
   constructor(canvas: HTMLCanvasElement | null) {
     if (instance) {
@@ -55,6 +56,8 @@ export default class Experience {
     this.sizes.on("resize", () => this.resize());
     // Time tick event
     this.time.on("tick", () => this.update());
+
+    this.setConfig();
   }
 
   init() {}
@@ -95,5 +98,23 @@ export default class Experience {
     if (this.debug.active) {
       this.debug.ui.destroy();
     }
+  }
+
+  setConfig() {
+    this.config = {};
+
+    // Pixel ratio
+    this.config.pixelRatio = Math.min(Math.max(window.devicePixelRatio, 1), 2);
+
+    // Width and height
+    const boundings = this.canvas.getBoundingClientRect();
+    this.config.width = boundings.width;
+    this.config.height = boundings.height || window.innerHeight;
+    this.config.smallestSide = Math.min(this.config.width, this.config.height);
+    this.config.largestSide = Math.max(this.config.width, this.config.height);
+
+    // Debug
+    // this.config.debug = window.location.hash === '#debug'
+    this.config.debug = this.config.width > 420;
   }
 }

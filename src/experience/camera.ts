@@ -11,13 +11,20 @@ export default class Camera {
   instance!: PerspectiveCamera;
   controls!: OrbitControls;
   config!: any;
+  debug: any;
+  debugFolder: any;
 
   constructor() {
     // this.experience = experience;
     this.experience = new Experience(null);
+    this.debug = this.experience.debug;
     this.sizes = this.experience.sizes;
     this.scene = this.experience.scene;
     this.canvas = this.experience.canvas;
+
+    if (this.debug.active) {
+      this.debugFolder = this.debug.ui.addFolder("camera");
+    }
 
     this.setInstance();
     this.setConfig();
@@ -56,6 +63,41 @@ export default class Camera {
   setOrbitControls() {
     this.controls = new OrbitControls(this.instance, this.canvas);
     this.controls.enableDamping = true;
+
+    // Limit
+    // Cannot look behind the model
+
+    this.controls.maxAzimuthAngle = Math.PI / 2;
+    this.controls.minAzimuthAngle = 0;
+    this.controls.maxPolarAngle = Math.PI / 2;
+    this.controls.minPolarAngle = 0;
+
+    if (this.debug.active) {
+      this.debugFolder
+        .add(this.controls, "maxAzimuthAngle")
+        .name("maxAzimuthAngle")
+        .min(-Math.PI)
+        .max(Math.PI)
+        .step(0.001);
+      this.debugFolder
+        .add(this.controls, "minAzimuthAngle")
+        .name("minAzimuthAngle")
+        .min(-Math.PI)
+        .max(Math.PI)
+        .step(0.001);
+      this.debugFolder
+        .add(this.controls, "maxPolarAngle")
+        .name("maxPolarAngle")
+        .min(-Math.PI)
+        .max(Math.PI)
+        .step(0.001);
+      this.debugFolder
+        .add(this.controls, "minPolarAngle")
+        .name("minPolarAngle")
+        .min(-Math.PI)
+        .max(Math.PI)
+        .step(0.001);
+    }
   }
 
   resize() {
